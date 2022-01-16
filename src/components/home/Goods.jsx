@@ -4,7 +4,7 @@ const Goods = ({ title, description, Image }) => {
   return (
     <div className="col-12 col-md-6 col-lg-4 my-3">
       <img
-        className="card-img-top embed-responsive-item"
+        className=" embed-responsive-item"
         src={Image}
         alt="Card image cap"
       />
