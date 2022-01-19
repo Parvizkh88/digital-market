@@ -1,46 +1,54 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Advertisement from "../components/home/Advertisement";
 import Filters from "../components/home/Filters";
+import { FaSearch } from "react-icons/fa";
+import logo from "../asset/image/logo192.png";
+import Selector from "../components/Selector";
 
 const Home = () => {
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  const handleOpenSearch = () => {
+    setSearchOpen(true);
+  };
+
+  const handleSearch = (e) => {
+    searchOpen(false);
+    e.preventDefault();
+  };
+
   return (
     <div className="container">
-      <div
-        className="input-group rounded mt-3 mb-3 mx-auto"
-        style={{ maxWidth: "400px" }}
-      >
-        <input
-          type="search"
-          className="form-control rounded"
-          placeholder="Search"
-          onChange={(e) => {
-            setSearchTerm(e.target.value);
-          }}
-          aria-label="Search"
-          aria-describedby="search-addon"
-        />
-        <span class="input-group-text border-0" id="search-addon">
-          <i class="fas fa-search"></i>
-        </span>
-        {Filters.filter((val) => {
-          if (searchTerm == "") {
-            return "";
-          } else if (
-            val.title.toLowerCase().includes(searchTerm.toLowerCase())
-          ) {
-            return val;
-          }
-        }).map((val, key) => {
-          return (
-            <div key={key}>
-              <p>{val.title}</p>
+      <div>
+        {!searchOpen ? (
+          <div
+            className="d-flex justify-content-between
+      align-items-center"
+          >
+            <div>
+              <img src={logo} alt="logo" className="w-25" />
             </div>
-          );
-        })}
+            <div>
+              <p className="fw-bold m-0 h3">Digital Market</p>
+            </div>
+            <div onClick={handleOpenSearch}>
+              <FaSearch />
+            </div>
+          </div>
+        ) : (
+          <form className="d-flex w-100 mt-2" onSubmit={handleSearch}>
+            <input
+              className="form-control rounded border p-2 w-100"
+              placeholder="Search Item"
+            />
+            <button className="border-0">
+              <FaSearch />
+            </button>
+          </form>
+        )}
       </div>
       <Advertisement />
-      <Filters />
+      <Selector items={["Speaker", "Laptop", "Camera", "Computer", "Hard"]} />
     </div>
   );
 };

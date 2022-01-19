@@ -25,22 +25,13 @@ const responsive = {
 
 const Advertisement = () => {
   return (
-    <div style={{ maxWidth: "500px", margin: "auto" }}>
+    <div style={{ maxWidth: "500px" }} className="mx-auto my-2">
       <Carousel
         swipeable={false}
-        draggable={false}
+        draggable={true}
         showDots={true}
         responsive={responsive}
-        ssr={true} // means to render carousel on server-side.
-        infinite={true}
-        autoPlaySpeed={1000}
-        keyBoardControl={true}
-        customTransition="all .5"
-        transitionDuration={500}
-        containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
-        dotListClass="custom-dot-list-style"
-        itemClass="carousel-item-padding-40-px"
       >
         <img src={image1} className="text-center d-flex mx-auto" />
         <img src={image2} className="text-center d-flex mx-auto" />
