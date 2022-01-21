@@ -2,12 +2,8 @@ import React from "react";
 
 const Goods = ({ title, description, Image }) => {
   return (
-    <div className="col-12 col-md-6 col-lg-4 my-3">
-      <img
-        className=" embed-responsive-item"
-        src={Image}
-        alt="Card image cap"
-      />
+    <div className="my-3 align-items-center">
+      <img src={Image} alt="Card image cap" />
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>

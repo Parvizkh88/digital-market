@@ -22,9 +22,7 @@ const responsive = {
     slidesToSlide: 4, // optional, default to 1.
   },
 };
-const Selector = ({ items }) => {
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
+const Selector = ({ items, selectedIndex, handleSetIndex }) => {
   return (
     <div>
       <Carousel
@@ -42,7 +40,7 @@ const Selector = ({ items }) => {
               }  p-2 m-2 
             border border-1 align-items-center 
             justify-content-center`}
-              onClick={() => setSelectedIndex(index)}
+              onClick={() => handleSetIndex(index)}
             >
               <p className="m-0">{item}</p>
             </div>
