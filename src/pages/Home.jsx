@@ -4,6 +4,7 @@ import ItemShower from "../components/home/ItemShower";
 import { FaSearch } from "react-icons/fa";
 import logo from "../asset/image/logo192.png";
 import Selector from "../components/Selector";
+import Footer from "../components/home/Footer";
 
 import Canon from "../asset/image/Canon.jpg";
 import Nikon from "../asset/image/Nikon.jpg";
@@ -148,6 +149,7 @@ const Home = () => {
         handleSetIndex={handleSetIndex}
       />
       <ItemShower items={categoryItem} />
+      <Footer />
     </div>
   );
 };
